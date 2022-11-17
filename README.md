@@ -26,5 +26,5 @@ Try out the following routes:
 3. localhost:5000/stats
 
 ## Demo
-The project is deployed on [Heroku], however the app has been raising some issues when going [live]: (https://dashboard.heroku.com/apps/aterlier-test-tech)
+The project is deployed on [Heroku], however the app has been raising some issues when going live: (https://dashboard.heroku.com/apps/aterlier-test-tech)
  
