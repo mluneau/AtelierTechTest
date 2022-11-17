@@ -1,7 +1,21 @@
+playerRatio = (last) => {
+    ratio = {
+        win: 0,
+        loss: 0
+    };
+    for (i=0; i<last.length; i++) {
+        last[i] == 1 ? ratio.win += 1 : ratio.loss += 1;
+    }
+    if (ratio.loss == 0) {
+        return ratio.win;
+    }
+    return parseFloat(ratio.win / ratio.loss).toFixed(2);
+};
 
-countryWinrateCalc = (country) => {
-    return 1;
-}
+countryRatioCalc = (country) => {
+    // Need to implement addition of country ratios.
+    return 0;
+};
 
 BMICalc = (height, weight) => {
     if (height == 0 || weight == 0) {
@@ -11,9 +25,9 @@ BMICalc = (height, weight) => {
     const heightConversion = height / 100; // Height in meters
     const weightConversion = weight / 1000; // Weight in kgs
     const bmi = weightConversion / Math.pow(heightConversion, 2);
-    console.log(bmi);
+    //console.log(bmi);
     return parseFloat(bmi.toFixed(2));
-}
+};
 
 
 medianHeightCalc = (heights) => {
@@ -25,10 +39,11 @@ medianHeightCalc = (heights) => {
     const middleIndex = Math.floor(heights.length / 2);
 
     return (heights.length % 2) ? heights[middleIndex] : ((heights[middleIndex -1] + heights[middleIndex]) / 2);
-}
+};
 
 module.exports = {
-    countryWinrateCalc,
+    playerRatio,
+    countryRatioCalc,
     BMICalc,
     medianHeightCalc
-}
+};

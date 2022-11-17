@@ -1,7 +1,6 @@
 const data = require('../data/headtohead.json');
 const Player = require('../models/Player');
-const { countryWinrateCalc, BMICalc, medianHeightCalc } = require('./statsCalculations');
-
+const { playerRatio, countryRatioCalc, BMICalc, medianHeightCalc } = require('./statsCalculations');
 
 class StatsService {
     static getStats() {
@@ -17,7 +16,17 @@ class StatsService {
     }
 
     static getHighestCountryWinrate(players) {
-        return 1;
+        
+        const highestCountryWinrate = players
+            .map(player => {
+                return {
+                    code: player.country.code,
+                    name: player.country.name,
+                    ratio: playerRatio(player.data.last)
+                };
+            });
+        // Missing country ratio addition when multiple players (e.g. USA)
+        return highestCountryWinrate.sort((a, b) => b.ratio - a.ratio)[0];    
     }
 
     static getMeanBMI(players) {
