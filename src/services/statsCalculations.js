@@ -6,10 +6,8 @@ playerRatio = (last) => {
     for (i=0; i<last.length; i++) {
         last[i] == 1 ? ratio.win += 1 : ratio.loss += 1;
     }
-    if (ratio.loss == 0) {
-        return ratio.win;
-    }
-    return parseFloat(ratio.win / ratio.loss).toFixed(2);
+    
+    return ratio.loss == 0 ? ratio.win : parseFloat(ratio.win / ratio.loss).toFixed(2); 
 };
 
 countryRatioCalc = (country) => {
