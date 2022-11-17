@@ -8,7 +8,7 @@ class Player {
         this.lastname = player.lastname;
         this.shortname = player.shortname;
         this.sex = player.sex;
-        //this.country = new Country(player.country)
+        this.country = new Country(player.country)
         this.picture = player.picture;
         this.rank = player.data.rank;
         this.points = player.data.points;

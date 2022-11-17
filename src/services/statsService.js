@@ -1,6 +1,6 @@
 const data = require('../data/headtohead.json');
 const Player = require('../models/Player');
-const { BMICalc, medianHeightCalc } = require('./statsCalculations');
+const { countryWinrateCalc, BMICalc, medianHeightCalc } = require('./statsCalculations');
 
 
 class StatsService {
@@ -12,6 +12,7 @@ class StatsService {
             medianHeight: this.getMedianHeight(players)
         }
 
+        //console.log(stats);
         return stats;
     }
 
@@ -21,15 +22,17 @@ class StatsService {
 
     static getMeanBMI(players) {
         const totalBMI = players
-            .map((player) => BMICalc(new Player(player).height, new Player(player).weight))
-            .reduce((a, b) => a + b, 0);
+            .map(player => BMICalc(new Player(player).height, new Player(player).weight))
+            .reduce((a, b) => a + b, 0)
         
+        //console.log(totalBMI);
         return (totalBMI / players.length);
     }
 
     static getMedianHeight(players) {
         const heights = players.map((player) => new Player(player).height);
         
+        //console.log(heights);
         return medianHeightCalc(heights);
     }
 }

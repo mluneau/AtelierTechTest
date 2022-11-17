@@ -7,15 +7,16 @@ BMICalc = (height, weight) => {
     if (height == 0 || weight == 0) {
         throw new Error("Input cannot be zero");
     }
+
     const heightConversion = height / 100; // Height in meters
     const weightConversion = weight / 1000; // Weight in kgs
     const bmi = weightConversion / Math.pow(heightConversion, 2);
-    return parseFloat(bmi).toFixed(2);
+    console.log(bmi);
+    return parseFloat(bmi.toFixed(2));
 }
 
 
 medianHeightCalc = (heights) => {
-
     if (heights.length == 0) {
         throw new Error("No inputs");
     }
